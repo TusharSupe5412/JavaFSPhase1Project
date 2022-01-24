@@ -9,14 +9,38 @@ public class LockedMe {
 
 	static final String projectFilePath = "D:\\Simplilearn learning\\Course 2-Implement OOPS using JAVA with Data Structures and Beyond\\Project\\LockedMeFiles";
 	static final String errorMassage = "Some error occured please contact : admin@lockedMe.com";
+	
 	public static void main(String[] args) 
 	{
-		createFiles();
-//		displayMenu();
-//		getAllFiles();
-//		deleteFiles();
-//		searchFiles();
+		Scanner sc = new Scanner(System.in);
+		int ch;
+		do
+		{
+			displayMenu();
+			System.out.println("Enter your choice");
+			ch = Integer.parseInt(sc.nextLine());
+		
+			switch(ch) 
+			{
+			case 1 :getAllFiles();
+			break;
+			case 2 :createFiles();
+			break;
+			case 3 :deleteFiles();
+			break;
+			case 4 :searchFiles();
+			break;
+			case 5 :System.exit(0);
+			break;
+			default:System.out.println("Invalid option");
+			break;
+			}
+		}
+		while(sc.hasNextLine());
+		sc.close();
 	}
+		
+
 	
 	/**
 	 * Display the menu of LokedMe.com
@@ -66,11 +90,16 @@ public class LockedMe {
 		try  
 		{    
 		Scanner obj = new Scanner(System.in);
-		String fileName;
-		
 		System.out.println("Enter the file name :");
-		fileName = obj.nextLine();
+		String fileName = obj.nextLine();
+	
+		File file= new File(projectFilePath + "\\" +fileName);  
+		if(file.exists()) {
+			System.out.println("File already exist");
+		}
 		
+		else 
+		{
 		int linesCount;
 		System.out.println("Enter how many lines in the file :");
 		linesCount = Integer.parseInt(obj.nextLine());
@@ -83,10 +112,11 @@ public class LockedMe {
 			 System.out.println("Enter the file line");
 			 myWriter.write(obj.nextLine()+"\n");
 			 }
-		 
+		 System.out.println("File Created Successfully");
 		 myWriter.close();
 		 obj.close();
 		}  
+		}
 		catch(Exception e)  
 		{  
 		System.out.println(errorMassage);
