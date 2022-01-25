@@ -1,0 +1,21 @@
+Core java concepts used in the projects as follows:
+
+1. Static and final keyword
+
+2. do-while loop
+
+3. switch case and break
+
+4. Exception Handling
+
+5. Scanner object to take the input from user
+
+6. File Handling
+
+7. for each loop
+
+8.LinkedList data structure to search a file from local repository
+
+9. class
+
+10. methods
